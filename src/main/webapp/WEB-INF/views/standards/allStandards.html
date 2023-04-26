@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+
+<div th:each="standard : ${standards}">
+    <a th:href="@{/standards/{id}(id=${standard.getId()})}"
+       th:text="${standard.getName()+', ' + standard.getCatNumber()+', '+ standard.getWeight()+', '+ standard.getVials()}">standard</a>
+</div>
+<br/>
+<hr/>
+<a href="/standards/new">Create new standard</a>
+</body>
+</html>

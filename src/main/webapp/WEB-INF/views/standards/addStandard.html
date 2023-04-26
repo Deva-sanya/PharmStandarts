@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New standard</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/standards/createStandard}" th:object="${standard}">
+    <label for="name">Enter name of standard: </label>
+    <input type="text" th:field="*{name}" id="name"/>
+    <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</div>
+    <br/>
+    <label for="catNumber">Enter catalog number of standard: </label>
+    <input type="text" th:field="*{catNumber}" id="catNumber"/>
+    <div style="color:red" th:if="${#fields.hasErrors('catNumber')}" th:errors="*{catNumber}">Catalog number Error</div>
+    <br/>
+    <label for="weight">Enter weight of one vial of standard: </label>
+    <input type="number" th:field="*{weight}" id="weight"/>
+    <div style="color:red" th:if="${#fields.hasErrors('weight')}" th:errors="*{weight}">Weight Error</div>
+    <br/>
+    <label for="vials">Enter number of standards vials : </label>
+    <input type="number" th:field="*{vials}" id="vials"/>
+    <div style="color:red" th:if="${#fields.hasErrors('vials')}" th:errors="*{vials}">Vials Error</div>
+    <br/>
+    <input type="submit" value="Add standard!"/>
+</form>
+
+</body>
+</html>
